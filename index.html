@@ -6,31 +6,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
+html, body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    height: 100%;
 }
-#openBoxNow {
-    display: block;
+#boxnowmap {
     width: 100%;
-    padding: 15px;
-    font-size: 18px;
+    height: 100vh;
 }
 </style>
 </head>
 <body>
 
-<button id="openBoxNow" class="boxnow-map-widget-button">
-    Избери BOX NOW автомат
-</button>
+<div id="boxnowmap"></div>
 
 <script>
 var _bn_map_widget_config = {
-    partnerId: 123, // ← временно, ще го сменим
-    afterSelect: function(selected){
+    parentElement: "#boxnowmap",
+    type: "iframe",
+    gps: true,
+    autoclose: false,
+    afterSelect: function(selected) {
+        console.log("Избран автомат:", selected);
         alert(
-            "Автомат: " + selected.boxnowLockerName + "\n" +
-            "Адрес: " + selected.boxnowLockerAddressLine1
+            selected.boxnowLockerName + "\n" +
+            selected.boxnowLockerAddressLine1
         );
     }
 };
@@ -45,3 +46,4 @@ var _bn_map_widget_config = {
 
 </body>
 </html>
+
