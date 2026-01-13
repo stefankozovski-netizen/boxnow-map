@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <title>BOX NOW карта</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-        #boxnowmap {
-            width: 100%;
-            height: 100vh;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>BOX NOW карта</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+#openBoxNow {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+}
+</style>
 </head>
 <body>
 
-<div id="boxnowmap"></div>
+<button id="openBoxNow" class="boxnow-map-widget-button">
+    Избери BOX NOW автомат
+</button>
 
 <script>
 var _bn_map_widget_config = {
-    partnerId: 123, /* ← смени с твоя partnerId */
-    parentElement: "#boxnowmap",
+    partnerId: 123, // ← временно, ще го сменим
     afterSelect: function(selected){
-        console.log(selected);
-        alert("Избран автомат: " + selected.boxnowLockerAddressLine1);
+        alert(
+            "Автомат: " + selected.boxnowLockerName + "\n" +
+            "Адрес: " + selected.boxnowLockerAddressLine1
+        );
     }
 };
 
